@@ -23,6 +23,7 @@ import { BooleanOption, StringOption, Option, OptionValues, getOptionValues } fr
 import { anyTypeIssueAnnotation, nullTypeIssueAnnotation } from "../Annotation";
 import { defined, assert, assertNever } from "../support/Support";
 import { RenderContext } from "../Renderer";
+import * as util from "util";
 
 export const javaOptions = {
     justTypes: new BooleanOption("just-types", "Plain types only", false),
@@ -378,6 +379,7 @@ export class JavaRenderer extends ConvenienceRenderer {
     }
 
     protected emitClassDefinition(c: ClassType, className: Name): void {
+        console.log(util.inspect(c, { depth: 10 }));
         this.emitFileHeader(className, this.importsForType(c));
         this.emitDescription(this.descriptionForType(c));
         this.emitClassAttributes(c, className);

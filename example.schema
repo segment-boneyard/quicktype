@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "",
+  "description": "",
+  "properties": {
+    "Optional Property": {
+      "description": "",
+      "id": "/properties/properties/properties/Optional Property",
+      "type": "integer"
+    },
+    "Required Property": {
+      "description": "",
+      "id": "/properties/properties/properties/Required Property",
+      "type": "integer"
+    }
+  },
+  "required": ["Required Property"],
+  "type": "object"
+}

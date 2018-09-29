@@ -17,6 +17,7 @@ import { defined, panic } from "../support/Support";
 import { TargetLanguage } from "../TargetLanguage";
 import { RenderContext } from "../Renderer";
 import { isES3IdentifierStart } from "./JavaScriptUnicodeMaps";
+import * as util from "util";
 
 export const tsFlowOptions = Object.assign({}, javaScriptOptions, {
     justTypes: new BooleanOption("just-types", "Interfaces only", false),
@@ -265,6 +266,7 @@ export class TypeScriptRenderer extends TypeScriptFlowBaseRenderer {
     }
 
     protected emitClassBlock(c: ClassType, className: Name): void {
+        console.log(util.inspect(c, { depth: 10 }));
         this.emitBlock(["export interface ", className, " "], "", () => {
             this.emitClassBlockBody(c);
         });
